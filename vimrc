@@ -15,6 +15,7 @@ set fdm=marker
 set autowrite
 "set autowritell
 set autoread
+set iskeyword=a-z,A-Z,48-57,_
 
 "if has('mouse')
 "    set mouse=a
@@ -94,53 +95,27 @@ set smarttab
 let mapleader=","
 let g:mapleader=","
 
-
-" Need omni plugin & genutils plugin
-"set completeopt=menu
-"let OmniCpp_GlobalScopeSearch=1
-"let OmniCpp_NamespaceSearch=1
-"let OmniCpp_DisplayMode=1
-"let OmniCpp_ShowScopeInAbbr=0
-"let OmniCpp_ShowPrototypeInAbbr=1
-"let OmniCpp_ShowAccess=1
-"let OmniCpp_MayCompleteDot=1
-"let OmniCpp_MayCompleteArrow=1
-"let OmniCpp_MayCompleteScope=1
-"
-"used in insert mode, autocomplete
-inoremap <silent> <leader>j <c-x><c-o>
-
-inoremap <silent> <leader>q <ESC>
+mapc
 
 "Tag list, need taglist plugin
-"let Tlist_Show_One_File=1
+let Tlist_Auto_Highlight_Tag=1  
+let Tlist_Auto_Update=1  
+let Tlist_Display_Tag_Scope=1  
+"let Tlist_Enable_Dold_Column=1  
+"let Tlist_File_Fold_Auto_Close=1  
+"let Tlist_Use_SingleClick=1  
+let g:Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Use_Right_Window  = 1
+" let Tlist_Show_One_File=1
 "let Tlist_Exit_OnlyWindow=1
-"let Tlist_Auto_Open=0
-"let Tlist_Use_Right_Window=1
-"map <silent> <leader>tt :TlistToggle<cr>
-
-let g:tagbar_usearrows = 1
-nnoremap <leader>tt :TagbarToggle<CR>
-
-"WinManager
-"let g:newtr_winsize=30
-"let g:winManagerWindowLayout="FileExplorer|TagList"
-"let g:winManagerWidth=30
-"let g:defaultExplorer=0
-"map <silent> <leader>wm :WMToggle<cr>
-"
-" shortcut for switching windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <silent> <leader>tt :TlistToggle<cr>
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
 " Fast saving
-nmap <leader>w :w!<cr>
+" nmap <leader>w :w!<cr>
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -178,7 +153,7 @@ set tags=
 "	set tags=/home/xiar1/tags;
 "endif
 
-set path=/home/xiar1/master_platypus/cdi
+" set path=/home/xiar1/master_platypus/cdi
 
 function! GenerateDB()
     let l:_cdir = getcwd()
@@ -216,42 +191,42 @@ autocmd BufWinEnter \[Buf\ List\] setl nonumber
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2 " always show the status line
-map <C-n> :cnext<cr>
-map <C-p> :cprev<cr>
+"map <C-n> :cnext<cr>
+"map <C-p> :cprev<cr>
 
 set wildmode=list:full
 set wildmenu
 
 " // The switch of the Source Explorer
-nmap <F8> :SrcExplToggle<CR>
+"nmap <F8> :SrcExplToggle<CR>
 
 " // Set the height of Source Explorer window
-let g:SrcExpl_winHeight = 8
+"let g:SrcExpl_winHeight = 8
 "
 " // Set 100 ms for refreshing the Source Explorer
-let g:SrcExpl_refreshTime = 100
+"let g:SrcExpl_refreshTime = 100
 "
 " // Set "Enter" key to jump into the exact definition context
-let g:SrcExpl_jumpKey = "<ENTER>"
+"let g:SrcExpl_jumpKey = "<ENTER>"
 "
 " // Set "Space" key for back from the definition context
-let g:SrcExpl_gobackKey = "<SPACE>"
+"let g:SrcExpl_gobackKey = "<SPACE>"
 "
 " // In order to avoid conflicts, the Source Explorer should know what plugins "
 " // except itself are using buffers. And you need add their buffer names into "
 " // below listaccording to the command ":buffers!"
 "
-let g:SrcExpl_pluginList = [
-      \ "__Tag_List__",
-      \ "_NERD_tree_"
-  \ ]
+"let g:SrcExpl_pluginList = [
+"      \ "__Tag_List__",
+"      \ "_NERD_tree_"
+"  \ ]
 " // Enable/Disable the local definition searching, and note that this is not  "
 " // guaranteed to work, the Source Explorer doesn't check the syntax for now. "
 " // It only searches for a match with the keyword according to command 'gd'
-let g:SrcExpl_searchLocalDef = 1
+"let g:SrcExpl_searchLocalDef = 1
 "
 " // Do not let the Source Explorer update the tags file when opening
-let g:SrcExpl_isUpdateTags = 0
+"let g:SrcExpl_isUpdateTags = 0
 "
 " // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to "
 " //  create/update a tags file
@@ -261,15 +236,13 @@ let g:SrcExpl_isUpdateTags = 0
 " let g:SrcExpl_updateTagsKey = "<F12>"
 "
 " // Set "<F3>" key for displaying the previous definition in the jump list
-let g:SrcExpl_prevDefKey = "<F3>"
+"let g:SrcExpl_prevDefKey = "<F3>"
 "
 " // Set "<F4>" key for displaying the next definition in the jump list
-let g:SrcExpl_nextDefKey = "<F4>" 
+"let g:SrcExpl_nextDefKey = "<F4>" 
 
-map <F1> :call ToggleSketch()<CR>
+"map <F1> :call ToggleSketch()<CR>
 ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-map <leader>v :Grep <C-R>=expand("<cword>")<cr>
 
 """"""""""""""""""""""""""""""
 " lookupfile setting
@@ -285,7 +258,7 @@ nmap <silent> <leader>lk :LUTags<cr>
 nmap <silent> <leader>ll :LUBufs<cr>
 nmap <silent> <leader>lw :LUWalk<cr>
 
-nmap <silent> <leader>l :ls<cr>
+"nmap <silent> <leader>l :ls<cr>
 
 " require to install cscope
 if has("cscope")
@@ -310,42 +283,15 @@ if has("cscope")
 endif
 
 " Load workspace
-if filereadable("/home/robert/workspace.vim")
+if filereadable("/root/workspace.vim")
     "source /root/.workspace.vim
-    source /home/robert/workspace.vim
+    source ${HOME}/workspace.vim
 endif
 
-vmap <silent> q <ESC>
-map <silent> <leader>3 #
-map <silent> <leader>8 * 
+"vmap <silent> q <ESC>
+"map <silent> <leader>3 #
+"map <silent> <leader>8 * 
 
-map <F2> :Regrep<cr>
-"function! CmdLine(str)
-"    exe "menu Foo.Bar :" . a:str
-"    emenu Foo.Bar
-"    unmenu Foo
-"endfunction
-"
-"function! VisualSelection(direction) range
-"    let l:saved_reg = @"
-"    execute "normal! vgvy"
-"
-"    let l:pattern = escape(@", '\\/.*$^~[]')
-"    let l:pattern = substitute(l:pattern, "\n$", "", "")
-"
-"    if a:direction == 'b'
-"        execute "normal ?" . l:pattern . "^M"
-"    elseif a:direction == 'gv'
-"        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-"    elseif a:direction == 'replace'
-"        call CmdLine("%s" . '/'. l:pattern . '/')
-"    elseif a:direction == 'f'
-"        execute "normal /" . l:pattern . "^M"
-"    endif
-"
-"    let @/ = l:pattern
-"    let @" = l:saved_reg
-"endfunction
 
 "How to add same character to the head of multi-line
 " 1. <C-v> selects multi-line
@@ -449,16 +395,7 @@ map <F2> :Regrep<cr>
 "filetype off                  " required
 
 
-let Tlist_Auto_Highlight_Tag=1  
-let Tlist_Auto_Open=1  
-let Tlist_Auto_Update=1  
-let Tlist_Display_Tag_Scope=1  
-let Tlist_Enable_Dold_Column=1  
-let Tlist_File_Fold_Auto_Close=1  
-let Tlist_Use_SingleClick=1  
-let g:Tlist_Ctags_Cmd='/usr/bin/ctags'
-nnoremap <silent> <F8> :TlistToggle<CR>
-   
+  
 filetype plugin on  
 autocmd FileType python set omnifunc=pythoncomplete#Complete  
 autocmd FileType javascr.pt set omnifunc=javascriptcomplete#CompleteJS  
@@ -471,9 +408,9 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'  
 let g:vim_markdown_folding_disabled=1
 
-let g:ConqueTerm_CloseOnEnd=1
-let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
-map <leader>t :ConqueTermSplit bash<cr>
+" let g:ConqueTerm_CloseOnEnd=1
+" let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
+map <leader>t :terminal<cr>
 
 " let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 "let g:vimshell_prompt_expr =
@@ -482,17 +419,7 @@ map <leader>t :ConqueTermSplit bash<cr>
 "map <leader>o :VimShell<cr>
 "map <leader>c :VimShellClose<cr>
 
-let g:pymode_folding = 0
-let g:pymode_doc = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_rope=0
-let g:pymode_options_max_line_length = 120
-map <leader>ch :PymodeLint<cr>
-
 hi Comment ctermfg=lightblue
-
-"map <leader>n :NERDTreeToggle<CR>
-let g:ansible_options = {'ignore_blank_lines': 0}
 
 set t_Co=256
 let g:go_version_warning = 0
@@ -531,3 +458,85 @@ autocmd FileType javascript,html,css,xml,yml,yaml set ai
 autocmd FileType javascript,html,css,xml,yml,yaml set sw=2
 autocmd FileType javascript,html,css,xml,yml,yaml set ts=2
 autocmd FileType javascript,html,css,xml,yml,yaml set sts=2
+
+" YouCompleteMe plugin configuration
+let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_show_diagnostics_ui = 0
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+
+" vim-fugitive configuration
+map <silent> <leader>gl :G log --graph<cr>
+map <silent> <leader>gs :G status<cr>
+map <silent> <leader>gd :G diff<cr>
+
+" shortcut for switching windows
+noremap <c-j> <down>
+noremap <c-j> <down>
+noremap <c-k> <up>
+noremap <c-l> <right>
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
+" setup nerdtree
+
+" <Nerdtree>-------------------{
+    ">> Basic settings
+
+        map <C-f> :NERDTreeToggle<CR>
+        let g:NERDTreeChDirMode = 2  "Change current folder as root
+        autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) |cd %:p:h |endif
+    ">> UI settings
+        " let NERDTreeQuitOnOpen=1   " Close NERDtree when files was opened
+        let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+        let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+        let NERDTreeChDirMode=2    " Change current working directory based on root directory in NERDTree
+        let g:NERDTreeHidden=1     " Don't show hidden files
+        let NERDTreeWinSize=30     " Initial NERDTree width
+        let NERDTreeAutoDeleteBuffer = 1  " Auto delete buffer deleted with NerdTree
+        "let NERDTreeShowBookmarks=0   " Show NERDTree bookmarks
+        let NERDTreeIgnore = ['\.pyc$', '\.swp', '\.swo', '__pycache__']   " Hide temp files in NERDTree
+        "let g:NERDTreeShowLineNumbers=1  " Show Line Number
+    " Open Nerdtree when there's no file opened
+        "autocmd vimenter * if !argc()|NERDTree|endif
+    " Or, auto-open Nerdtree
+        "autocmd vimenter * NERDTree
+    " Close NERDTree when there's no other windows
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " Customize icons on Nerdtree
+        let g:NERDTreeDirArrowExpandable = '▸'
+        let g:NERDTreeDirArrowCollapsible = '▾'
+ 
+    ">> NERDTREE-GIT
+        " Special characters
+    let g:NERDTreeIndicatorMapCustom = { 
+        \ "Modified"  : "✹",
+        \ "Staged"    : "✚",
+        \ "Untracked" : "✭",
+        \ "Renamed"   : "➜",
+        \ "Unmerged"  : "═",
+        \ "Deleted"   : "✖",
+        \ "Dirty"     : "✗",
+        \ "Clean"     : "✔︎",
+        \ 'Ignored'   : '☒',
+        \ "Unknown"   : "?"
+    \ }
+ 
+    ">> NERDTree-Tabs
+        "let g:nerdtree_tabs_open_on_console_startup=1 "Auto-open Nerdtree-tabs on VIM enter
+    ">> Nerdtree-devicons
+        "set guifont=DroidSansMono_Nerd_Font:h11
+    ">> Nerdtree-syntax-highlighting
+        "let g:NERDTreeDisableFileExtensionHighlight = 1
+        "let g:NERDTreeDisableExactMatchHighlight = 1
+        "let g:NERDTreeDisablePatternMatchHighlight = 1
+        "let g:NERDTreeFileExtensionHighlightFullName = 1
+        "let g:NERDTreeExactMatchHighlightFullName = 1
+        "let g:NERDTreePatternMatchHighlightFullName = 1
+        "let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+        "let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+        "let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+" }
