@@ -16,3 +16,6 @@ endfor
 if hlID('CarriageReturn')
   match CarriageReturn /\r$/
 endif
+
+" setup nerdtree
+map <C-f> :NERDTreeToggle<CR>
