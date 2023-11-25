@@ -17,5 +17,27 @@ if hlID('CarriageReturn')
   match CarriageReturn /\r$/
 endif
 
-" setup nerdtree
+" setup nerdtree Settings
 map <C-f> :NERDTreeToggle<CR>
+
+" Tab settins
+map <Tab>n :tabnext<CR>
+map <Tab>p :tabprevious<CR>
+map <leader>ot :terminal<CR>
+
+"vim-interestingwords settings
+nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
+nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+
+nnoremap <silent> n :call WordNavigation(1)<cr>
+nnoremap <silent> N :call WordNavigation(0)<cr>
+
+" setup fzf
+" Need to install fzf first
+" $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+" $ ~/.fzf/install
+set rtp+=~/.fzf
+" let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <c-p> :Files <CR>
