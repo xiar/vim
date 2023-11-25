@@ -26,10 +26,6 @@
 	path = bundle/sahara
 	url = https://sanctum.geek.nz/code/sahara.git
 	ignore = untracked
-[submodule "bundle/undotree"]
-	path = bundle/undotree
-	url = https://github.com/mbbill/undotree.git
-	ignore = untracked
 [submodule "bundle/vimux"]
 	path = bundle/vimux
 	url = https://github.com/benmills/vimux.git
@@ -210,3 +206,12 @@
 	path = bundle/one
 	url = https://github.com/rakr/vim-one.git
 	ignore = untracked
+[submodule "bundle/gitgutter"]
+	path = bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "bundle/tmuxline"]
+	path = bundle/tmuxline
+	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule "bundle/mark"]
+	path = bundle/mark
+	url = https://github.com/inkarkat/vim-mark.git
