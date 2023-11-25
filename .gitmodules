@@ -213,3 +213,6 @@
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "bundle/ripgrep"]
+	path = bundle/ripgrep
+	url = https://github.com/BurntSushi/ripgrep.git
