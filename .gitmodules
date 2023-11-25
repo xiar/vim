@@ -212,6 +212,6 @@
 [submodule "bundle/tmuxline"]
 	path = bundle/tmuxline
 	url = https://github.com/edkolev/tmuxline.vim.git
-[submodule "bundle/mark"]
-	path = bundle/mark
-	url = https://github.com/inkarkat/vim-mark.git
+[submodule "bundle/vim-interestingwords"]
+	path = bundle/vim-interestingwords
+	url = https://github.com/lfv89/vim-interestingwords.git
