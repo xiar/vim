@@ -215,6 +215,9 @@
 [submodule "bundle/vim-interestingwords"]
 	path = bundle/vim-interestingwords
 	url = https://github.com/lfv89/vim-interestingwords.git
-[submodule "fzf"]
+[submodule "bundle/fzf"]
 	path = bundle/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "bundle/fzf.vim"]
+	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
