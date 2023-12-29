@@ -216,3 +216,6 @@
 [submodule "bundle/ripgrep"]
 	path = bundle/ripgrep
 	url = https://github.com/BurntSushi/ripgrep.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
