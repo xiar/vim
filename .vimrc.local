@@ -1,7 +1,7 @@
 " -- display -------------------------------------------------------------------
 
 if exists("+colorcolumn")
-  set colorcolumn=81          " display a marker after column 80
+  set colorcolumn=121          " display a marker after column 80
 endif
 
 " hides carriage returns in case of mixed line endings
@@ -48,3 +48,22 @@ nnoremap <silent> <Leader>rg :Rg<CR>
 nnoremap <silent> <c-p> :Files <CR>
 nnoremap <silent> <Leader>fg :GFiles <CR>
 nnoremap <silent> <Leader>ff :Files <CR>
+
+colorscheme molokai
+
+" open tig with current file
+nnoremap <Leader>eT :TigOpenCurrentFile<CR>
+" open tig with Project root path
+nnoremap <Leader>et :TigOpenProjectRootDir<CR>
+" open tig grep
+nnoremap <Leader>g :TigGrep<CR>
+" resume from last grep
+nnoremap <Leader>r :TigGrepResume<CR>
+" open tig grep with the selected word
+vnoremap <Leader>g y:TigGrep<Space><C-R>"<CR>
+" open tig grep with the word under the cursor
+nnoremap <Leader>cg :<C-u>:TigGrep<Space><C-R><C-W><CR>
+" open tig blame with current file
+nnoremap <Leader>b :TigBlame<CR>
+" don't use builtin terminal
+let g:tig_explorer_use_builtin_term=0

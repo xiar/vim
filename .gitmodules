@@ -219,3 +219,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule "bundle/tig-explorer"]
+	path = bundle/tig-explorer
+	url = https://github.com/iberianpig/tig-explorer.vim.git
