@@ -10,7 +10,7 @@ if has("autocmd")
   " close vim if the only window left open is a NERDTree
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
-  autocmd BufEnter * if g:NERDTree.IsOpen() | execute 'silent normal R' | endif
+  " autocmd BufEnter * if g:NERDTree.IsOpen() | execute 'silent normal R' | endif
 endif
 
 function! s:NERDTreeToggleAndRefresh()
